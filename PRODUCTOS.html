@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda de Licores - Productos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .producto {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .producto img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .producto h3 {
+            margin: 10px 0;
+        }
+
+        .precio {
+            color: #27ae60;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #732d91;
+        }
+
+        footer {
+            background-color: #2c2c2c;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+
+<div class="container">
+    <h2>Whisky</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/cuentas_11.png?v=1741196379&width=700" alt="JOHNNIE WALKER Red Label">
+            <h3>Whisky JOHNNIE WALKER Red Label Botella 750ml</h3>
+            <p class="precio">S/ 55.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/viejo.png?v=1748121307&width=700" alt="Whisky JOHNNIE WALKER Gold Label">
+            <h3>Whisky JOHNNIE WALKER Gold Label Reserve Botella 750ml</h3>
+            <p class="precio">S/ 195.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/Disenosintitulo_33_fdfd4cd4-985d-40df-9451-dab68f5149c5.png?v=1727893563&width=700" alt="Whisky JOHNNIE WALKER Black Label">
+            <h3>Whisky JOHNNIE WALKER Black Label Botella 750ml</h3>
+            <p class="precio">S/ 96.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <h2>Ron</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/cuentas_37_056a0638-3a12-4ce2-a7a1-12cc77808147.png?v=1757007058&width=700" alt="Ron FLOR DE CAÑAl">
+            <h3>Ron FLOR DE CAÑA 12 Años Botella 750ml</h3>
+            <p class="precio">S/ 95.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/Disenosintitulo_71.png?v=1728171999&width=700" alt="Ron CARTAVIO XO">
+            <h3>Ron CARTAVIO XO Botella 750ml</h3>
+            <p class="precio">S/ 165.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/products/ron-carupano-reserva-privada-21-anos-botella-750ml.webp?v=1677703759&width=500" alt="Ron CARUPANO RESERVA PRIVADA">
+            <h3>Ron CARÚPANO Reserva Privada 21 Años Botella 750ml</h3>
+            <p class="precio">S/ 175.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <h2>Vinos</h2>
+
+    <div class="productos">
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/cuentas_67_2eb4220e-c3d2-4497-920b-78c7b45e3698.png?v=1758410010&width=700" alt="Vino NAVARRO CORREAS">
+            <h3>Vino NAVARRO CORREAS Colección Privada Malbec x 750 ml</h3>
+            <p class="precio">S/ 45.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/cuentas_91.png?v=1759248035&width=700" alt="Vino KNOCK KNOCK BlancoO">
+            <h3>Vino KNOCK KNOCK Blanco x 750 ml</h3>
+            <p class="precio">S/ 28.00</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+        <div class="producto">
+            <img src="https://licoreriasunidas.pe/cdn/shop/files/VinoCOTEDESROSESPinotNoirBotella750ml.png?v=1748286649&width=700" alt="Vino COTEDES ROSÉ Pinot Noir">
+            <h3>Vino COTEDES ROSÉ Pinot Noir x 750 ml</h3>
+            <p class="precio">S/ 74.50</p>
+            <button>Agregar al carrito</button>
+        </div>
+
+    </div>
+</div>
+</body>
+
+     
