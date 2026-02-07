@@ -5,4 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
 </head>
-<h2>hola</h2>
+<div class="container" id="pedido">
+    <h2>📝 Realiza tu pedido</h2>
+
+    <form onsubmit="enviarWhatsApp(); return false;"
+          style="background:white; padding:20px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+
+        <label>Nombre</label><br>
+        <input type="text" id="nombre" required><br><br>
+
+        <label>¿Qué vas a llevar?</label><br>
+        <input type="text" id="pedidoProducto" required><br><br>
+
+        <label>Dirección</label><br>
+        <input type="text" id="direccion" required><br><br>
+
+        <label>Medio de pago</label><br>
+        <select id="pago" required>
+            <option value="">Selecciona</option>
+            <option value="Yape">Yape</option>
+            <option value="Plin">Plin</option>
+            <option value="Efectivo">Efectivo</option>
+        </select><br><br>
+
+        <button type="submit">📲 Enviar por WhatsApp</button>
+
+        <p>⚠️ Solo mayores de 18 años</p>
+    </form>
+</div>
+<script>
+function enviarWhatsApp() {
+    let nombre = document.getElementById("nombre").value;
+    let pedido = document.getElementById("pedidoProducto").value;
+    let direccion = document.getElementById("direccion").value;
+    let pago = document.getElementById("pago").value;
+
+    let mensaje = `🍾 *Nuevo Pedido - AZKABAR* %0A
+👤 Nombre: ${nombre} %0A
+🛒 Pedido: ${pedido} %0A
+📍 Dirección: ${direccion} %0A
+💳 Pago: ${pago}`;
+
+    let telefono = "51944870211"; 
+
+    let url = `https://wa.me/${telefono}?text=${mensaje}`;
+    window.open(url, "_blank");
+}
+</script>
