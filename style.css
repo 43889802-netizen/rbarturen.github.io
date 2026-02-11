@@ -105,3 +105,85 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* BLOQUE HISTORIA GIRLY & WOW */
+.historia {
+    background-color: #fff0f5; /* lavanda muy suave */
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(199, 154, 255, 0.35); /* sombra elegante y colorida */
+    margin-bottom: 50px;
+    line-height: 1.9;
+    font-family: 'Georgia', serif;
+    border: 2px solid #f4c2ff; /* borde finito color rosa lavanda */
+    position: relative;
+}
+
+/* DECORACIÓN ICONITOS EN ESQUINAS */
+.historia::before,
+.historia::after {
+    content: "🍸✨";
+    position: absolute;
+    font-size: 28px;
+}
+
+.historia::before {
+    top: -15px;
+    left: -15px;
+}
+
+.historia::after {
+    bottom: -15px;
+    right: -15px;
+}
+
+/* TÍTULO PRINCIPAL */
+.historia h1 {
+    color: #d46aff; /* rosa/púrpura intenso */
+    text-align: center;
+    font-size: 42px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* DECORACIÓN DORADA EN TÍTULO */
+.historia h1::after {
+    content: "✨✨✨";
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* SUBTÍTULOS */
+.historia h2 {
+    color: #b14dcc; /* púrpura suave */
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+/* ICONITOS DECORATIVOS EN SUBTÍTULOS */
+.historia h2::before,
+.historia h2::after {
+    content: "🌸";
+    margin: 0 8px;
+}
+
+/* PÁRRAFOS / H3 */
+.historia h3 {
+    font-size: 19px; 
+    color: #555; 
+    text-align: justify;
+    margin-bottom: 18px;
+}
+
+/* EFECTO HOVER PARA EL BLOQUE */
+.historia:hover {
+    box-shadow: 0 0 40px rgba(199, 154, 255, 0.45);
+    transform: translateY(-3px);
+    transition: all 0.5s ease;
+}
