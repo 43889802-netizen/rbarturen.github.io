@@ -105,21 +105,21 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-
-/* BLOQUE HISTORIA GIRLY & WOW */
+/* BLOQUE HISTORIA GIRLY & CUTE */
 .historia {
-    background-color: #fff0f5; /* lavanda muy suave */
+    background: linear-gradient(to bottom, #fff0f5, #ffe6fa); /* degradado suave rosa-lavanda */
     padding: 50px;
     border-radius: 25px;
-    box-shadow: 0 0 30px rgba(199, 154, 255, 0.35); /* sombra elegante y colorida */
+    box-shadow: 0 0 35px rgba(199, 154, 255, 0.4);
     margin-bottom: 50px;
     line-height: 1.9;
     font-family: 'Georgia', serif;
-    border: 2px solid #f4c2ff; /* borde finito color rosa lavanda */
+    border: 2px solid #f4c2ff;
     position: relative;
+    overflow: hidden;
 }
 
-/* DECORACIÓN ICONITOS EN ESQUINAS */
+/* ICONITOS EN ESQUINAS */
 .historia::before,
 .historia::after {
     content: "🍸✨";
@@ -139,31 +139,33 @@ footer {
 
 /* TÍTULO PRINCIPAL */
 .historia h1 {
-    color: #d46aff; /* rosa/púrpura intenso */
+    color: #d46aff;
     text-align: center;
-    font-size: 42px;
-    font-weight: 900;
-    margin-bottom: 25px;
+    font-size: 44px;
+    font-weight: 700; /* un poco grueso, elegante */
+    margin-bottom: 30px;
     letter-spacing: 1px;
+    position: relative;
 }
 
 /* DECORACIÓN DORADA EN TÍTULO */
 .historia h1::after {
     content: "✨✨✨";
     display: block;
-    font-size: 24px;
+    font-size: 26px;
     text-align: center;
     margin-top: 10px;
 }
 
 /* SUBTÍTULOS */
 .historia h2 {
-    color: #b14dcc; /* púrpura suave */
+    color: #b14dcc;
     text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
+    font-size: 34px;
+    font-weight: 600; /* subítulos con un poco de grosor */
+    margin-bottom: 25px;
     letter-spacing: 0.5px;
+    position: relative;
 }
 
 /* ICONITOS DECORATIVOS EN SUBTÍTULOS */
@@ -179,11 +181,28 @@ footer {
     color: #555; 
     text-align: justify;
     margin-bottom: 18px;
+    font-style: italic; /* CURSIVA para elegante y femenino */
+    font-weight: 400;   /* no grueso, más delicado */
+    position: relative;
+}
+
+/* ICONITOS DENTRO DE PÁRRAFOS (opcional) */
+.historia h3::before {
+    content: "✨ ";
 }
 
 /* EFECTO HOVER PARA EL BLOQUE */
 .historia:hover {
-    box-shadow: 0 0 40px rgba(199, 154, 255, 0.45);
-    transform: translateY(-3px);
+    box-shadow: 0 0 45px rgba(199, 154, 255, 0.5);
+    transform: translateY(-4px);
     transition: all 0.5s ease;
+}
+
+/* SEPARADORES DECORATIVOS ENTRE SECCIONES */
+.historia hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #d46aff, #b14dcc);
+    border-radius: 1px;
+    margin: 30px 0;
 }
