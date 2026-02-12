@@ -105,18 +105,19 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
-/* BLOQUE HISTORIA GIRLY & CUTE */
+/* BLOQUE HISTORIA LUJO: DORADO + NEGRO */
 .historia {
-    background: linear-gradient(to bottom, #fff0f5, #ffe6fa); /* degradado suave rosa-lavanda */
+    background: linear-gradient(to bottom, #000000, #1c1c1c); /* fondo negro degradado */
     padding: 50px;
     border-radius: 25px;
-    box-shadow: 0 0 35px rgba(199, 154, 255, 0.4);
+    box-shadow: 0 0 35px rgba(212, 170, 70, 0.4); /* sombra dorada suave */
     margin-bottom: 50px;
     line-height: 1.9;
     font-family: 'Georgia', serif;
-    border: 2px solid #f4c2ff;
+    border: 2px solid #d4aa46; /* borde dorado */
     position: relative;
     overflow: hidden;
+    color: #fdf5e6; /* texto en tono crema/dorado claro para contraste */
 }
 
 /* ICONITOS EN ESQUINAS */
@@ -139,10 +140,10 @@ footer {
 
 /* TÍTULO PRINCIPAL */
 .historia h1 {
-    color: #d46aff;
+    color: #d4aa46; /* dorado intenso */
     text-align: center;
     font-size: 44px;
-    font-weight: 700; /* un poco grueso, elegante */
+    font-weight: 700; /* un poco grueso */
     margin-bottom: 30px;
     letter-spacing: 1px;
     position: relative;
@@ -159,10 +160,10 @@ footer {
 
 /* SUBTÍTULOS */
 .historia h2 {
-    color: #b14dcc;
+    color: #f0d689; /* dorado más suave */
     text-align: center;
     font-size: 34px;
-    font-weight: 600; /* subítulos con un poco de grosor */
+    font-weight: 600;
     margin-bottom: 25px;
     letter-spacing: 0.5px;
     position: relative;
@@ -178,11 +179,11 @@ footer {
 /* PÁRRAFOS / H3 */
 .historia h3 {
     font-size: 19px; 
-    color: #555; 
+    color: #fdf5e6; /* crema/dorado claro */
     text-align: justify;
     margin-bottom: 18px;
-    font-style: italic; /* CURSIVA para elegante y femenino */
-    font-weight: 400;   /* no grueso, más delicado */
+    font-style: italic; /* cursiva elegante */
+    font-weight: 400;
     position: relative;
 }
 
@@ -193,7 +194,7 @@ footer {
 
 /* EFECTO HOVER PARA EL BLOQUE */
 .historia:hover {
-    box-shadow: 0 0 45px rgba(199, 154, 255, 0.5);
+    box-shadow: 0 0 45px rgba(212, 170, 70, 0.7); /* sombra dorada más intensa */
     transform: translateY(-4px);
     transition: all 0.5s ease;
 }
@@ -202,7 +203,7 @@ footer {
 .historia hr {
     border: none;
     height: 2px;
-    background: linear-gradient(to right, #d46aff, #b14dcc);
+    background: linear-gradient(to right, #d4aa46, #f0d689);
     border-radius: 1px;
     margin: 30px 0;
 }
