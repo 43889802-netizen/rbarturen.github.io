@@ -88,7 +88,13 @@ function enviarWhatsApp() {
 
     carrito.forEach(producto => {
         let li = document.createElement("li");
-        li.textContent = `${producto.nombre} - S/ ${producto.precio}`;
+
+        li.innerHTML = `
+            <img src="${producto.imagen}" width="80">
+            <strong>${producto.nombre}</strong><br>
+            Precio: S/ ${producto.precio}
+        `;
+
         lista.appendChild(li);
         total += producto.precio;
     });
@@ -100,5 +106,6 @@ function enviarWhatsApp() {
         location.reload();
     }
 </script>
+
 
 </body>
