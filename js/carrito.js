@@ -10,3 +10,4 @@ function agregarAlCarrito(nombre, precio) {
 
     alert("🛒 Producto agregado al carrito");
 }
+
