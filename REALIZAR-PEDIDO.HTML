@@ -78,3 +78,27 @@ function enviarWhatsApp() {
 <p id="total"></p>
 
 <button onclick="vaciarCarrito()">Vaciar carrito</button>
+
+<script src="js/carrito.js"></script>
+
+<script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let lista = document.getElementById("lista-carrito");
+    let total = 0;
+
+    carrito.forEach(producto => {
+        let li = document.createElement("li");
+        li.textContent = `${producto.nombre} - S/ ${producto.precio}`;
+        lista.appendChild(li);
+        total += producto.precio;
+    });
+
+    document.getElementById("total").textContent = "Total: S/ " + total;
+
+    function vaciarCarrito() {
+        localStorage.removeItem("carrito");
+        location.reload();
+    }
+</script>
+
+</body>
