@@ -3,7 +3,7 @@ function agregarAlCarrito(nombre, precio, imagen) {
 
     carrito.push({
         nombre: nombre,
-        precio: precio
+        precio: precio,
         imagen: imagen
     });
 
