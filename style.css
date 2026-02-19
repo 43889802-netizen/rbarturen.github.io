@@ -105,3 +105,134 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+/* BLOQUE HISTORIA LUJO: DORADO + NEGRO */
+.historia {
+    background: linear-gradient(to bottom, #000000, #1c1c1c); /* fondo negro degradado */
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 0 35px rgba(212, 170, 70, 0.4); /* sombra dorada suave */
+    margin-bottom: 50px;
+    line-height: 1.9;
+    font-family: 'Georgia', serif;
+    border: 2px solid #d4aa46; /* borde dorado */
+    position: relative;
+    overflow: hidden;
+    color: #fdf5e6; /* texto en tono crema/dorado claro para contraste */
+}
+
+/* ICONITOS EN ESQUINAS */
+.historia::before,
+.historia::after {
+    content: "🍸✨";
+    position: absolute;
+    font-size: 28px;
+}
+
+.historia::before {
+    top: -15px;
+    left: -15px;
+}
+
+.historia::after {
+    bottom: -15px;
+    right: -15px;
+}
+
+/* TÍTULO PRINCIPAL */
+.historia h1 {
+    color: #d4aa46; /* dorado intenso */
+    text-align: center;
+    font-size: 44px;
+    font-weight: 700; /* un poco grueso */
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+/* DECORACIÓN DORADA EN TÍTULO */
+.historia h1::after {
+    content: "✨✨✨";
+    display: block;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* SUBTÍTULOS */
+.historia h2 {
+    color: #f0d689; /* dorado más suave */
+    text-align: center;
+    font-size: 34px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* ICONITOS DECORATIVOS EN SUBTÍTULOS */
+.historia h2::before,
+.historia h2::after {
+    content: "🌸";
+    margin: 0 8px;
+}
+
+/* PÁRRAFOS / H3 */
+.historia h3 {
+    font-size: 19px; 
+    color: #fdf5e6; /* crema/dorado claro */
+    text-align: justify;
+    margin-bottom: 18px;
+    font-style: italic; /* cursiva elegante */
+    font-weight: 400;
+    position: relative;
+}
+
+/* ICONITOS DENTRO DE PÁRRAFOS (opcional) */
+.historia h3::before {
+    content: "✨ ";
+}
+
+/* EFECTO HOVER PARA EL BLOQUE */
+.historia:hover {
+    box-shadow: 0 0 45px rgba(212, 170, 70, 0.7); /* sombra dorada más intensa */
+    transform: translateY(-4px);
+    transition: all 0.5s ease;
+}
+
+/* SEPARADORES DECORATIVOS ENTRE SECCIONES */
+.historia hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, #d4aa46, #f0d689);
+    border-radius: 1px;
+    margin: 30px 0;
+}
+
+/*OFERTAS*/
+
+.ofertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+.oferta {
+    background: white;
+    border-radius: 5px;
+    padding: 2px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+}
+
+.oferta img {
+    width: 40%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.oferta h3 {
+    margin: 15px 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+}
