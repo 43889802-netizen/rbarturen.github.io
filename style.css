@@ -224,8 +224,8 @@ footer {
 }
 
 .oferta img {
-    width: 40%;
-    height: 400px;
+    width: 80%;
+    height: 350px;
     object-fit: cover;
     border-radius: 12px;
 }
