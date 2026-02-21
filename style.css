@@ -21,7 +21,7 @@ nav {
 }
 
 nav a {
-    color: rgb(70, 2, 2);
+    color: rgb(255, 255, 255);
     margin: 0 15px;
     text-decoration: none;
     font-weight: bold; 
@@ -235,4 +235,109 @@ footer {
     font-size: 18px;
     font-weight: 600;
     color: #222;
+}
+
+#lista-carrito {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-carrito li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+#lista-carrito img {
+    border-radius: 5px;
+}
+
+.contacto {
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.08);
+}
+
+
+
+/* CONTENEDOR GENERAL CONTACTO */
+.contacto-contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background:#ffffff;
+    border-radius: 25px;
+    border: 2px solid #f1e3c2;
+    box-shadow: 0 0 30px rgba(255, 243, 215, 0.4);
+    color: #000000;
+    text-align: center;
+}
+
+/* TITULOS */
+.titulo-contacto {
+    color: #d4aa46;
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.subtitulo-contacto {
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+/* INFO CONTACTO */
+.info-contacto {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+/* boton de whatsapp en contactos */
+.btn-whatsapp {
+    background: #25D366;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* FORMULARIO */
+.contacto {
+    margin-top: 40px;
+}
+
+.contacto input,
+.contacto textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #f5f4ef;
+}
+
+
+
+/* UBICACIÓN */
+.ubicacion {
+    margin-top: 50px;
+}
+
+.ubicacion iframe {
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 243, 215, 0.4);
+}
+
+/* MENSAJE FINAL */
+.mensaje-final {
+    margin-top: 40px;
+    font-weight: 500;
+    color: #d4aa46;
 }

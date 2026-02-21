@@ -20,6 +20,41 @@
     <a href="HISTORIA DE LOS LICORES.HTML">Historia</a>
     <a href="#">🛒 Producto agregado al carrito</a>
 </nav>
+</h2>🛒 Carrito de Compras</h2>
+
+<ul id="lista-carrito"></ul>
+
+<p id="total"></p>
+
+<button onclick="vaciarCarrito()">Vaciar carrito</button>
+
+<script src="js/carrito.js"></script>
+
+<script>
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let lista = document.getElementById("lista-carrito");
+    let total = 0;
+
+    carrito.forEach(producto => {
+        let li = document.createElement("li");
+
+        li.innerHTML = `
+            <img src="${producto.imagen}" width="80">
+            <strong>${producto.nombre}</strong><br>
+            Precio: S/ ${producto.precio}
+        `;
+
+        lista.appendChild(li);
+        total += producto.precio;
+    });
+
+    document.getElementById("total").textContent = "Total: S/ " + total;
+
+    function vaciarCarrito() {
+        localStorage.removeItem("carrito");
+        location.reload();
+    }
+</script>
 
 <div class="container" id="pedido">
     <h2>📝 Realiza tu pedido</h2>
@@ -71,9 +106,6 @@ function enviarWhatsApp() {
 <footer>
     <p>© 2026 Licorería Premium | Venta solo para mayores de 18 años</p>
 </footer>
-<body><h2>🛒 Tu Carrito de Compras</h2>
-<ul id="lista-carrito"></ul>
-<p id="total"></p>
 
-<button onclick="vaciarCar
 </body>
+</html>
