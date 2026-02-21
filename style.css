@@ -1,56 +1,587 @@
-/* BLOQUE HISTORIA SIN FONDO NEGRO */
+/* FUENTES Y FONDO GENERAL */
+
+body {
+
+font-family: 'Times New Roman', Times, serif, sans-serif;
+
+margin: 0;
+
+background-color: #f4f4f4;
+
+}
+
+/* HEADER */
+
+header {
+
+background-color: #2c2c2c;
+
+color: white;
+
+padding: 20px;
+
+text-align: center;
+
+}
+
+/* NAVEGACIÓN */
+
+nav {
+
+background-color: #444;
+
+padding: 10px;
+
+text-align: center;
+
+}
+
+nav a {
+
+color: rgb(255, 255, 255);
+
+margin: 0 15px;
+
+text-decoration: none;
+
+font-weight: bold;
+
+}
+
+nav a:hover {
+
+text-decoration: underline;
+
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.container {
+
+padding: 40px;
+
+}
+
+/* GRID DE PRODUCTOS */
+
+.productos {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+gap: 30px;
+
+}
+
+/* TARJETAS DE PRODUCTO */
+
+.producto {
+
+background: white;
+
+border-radius: 15px;
+
+padding: 20px;
+
+text-align: center;
+
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
+
+}
+
+.producto img {
+
+width: 100%;
+
+height: 300px;
+
+object-fit: cover;
+
+border-radius: 12px;
+
+}
+
+.producto h3 {
+
+margin: 15px 0 10px;
+
+font-size: 18px;
+
+font-weight: 600;
+
+color: #222;
+
+}
+
+/* PRECIO */
+
+.precio {
+
+color: #c59d5f;
+
+font-size: 20px;
+
+font-weight: bold;
+
+}
+
+/* BOTONES PRINCIPALES */
+
+button,
+
+.btn-pedido {
+
+background-color: #1f1f1f; /* color base elegante */
+
+color: white;
+
+border: none;
+
+padding: 12px 20px;
+
+border-radius: 10px;
+
+cursor: pointer;
+
+font-weight: 600;
+
+letter-spacing: 0.5px;
+
+transition: all 0.3s ease;
+
+text-decoration: none;
+
+display: inline-block;
+
+margin-top: 10px;
+
+}
+
+/* EFECTO HOVER BOTONES */
+
+button:hover,
+
+.btn-pedido:hover {
+
+background-color: #c59d5f; /* dorado elegante */
+
+color: #111;
+
+}
+
+/* FOOTER */
+
+footer {
+
+background-color: #1f1f1f;
+
+color: white;
+
+text-align: center;
+
+padding: 20px;
+
+margin-top: 40px;
+
+}
+
+/* BLOQUE HISTORIA LUJO: DORADO + NEGRO */
+
 .historia {
-    background: #ffffff; /* fondo blanco */
-    padding: 50px;
-    border-radius: 25px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 50px;
-    line-height: 1.9;
-    font-family: 'Georgia', serif;
-    border: 2px solid #d4aa46;
-    color: #333; /* texto oscuro normal */
+
+background: linear-gradient(to bottom, #000000, #1c1c1c); /* fondo negro degradado */
+
+padding: 50px;
+
+border-radius: 25px;
+
+box-shadow: 0 0 35px rgba(212, 170, 70, 0.4); /* sombra dorada suave */
+
+margin-bottom: 50px;
+
+line-height: 1.9;
+
+font-family: 'Georgia', serif;
+
+border: 2px solid #d4aa46; /* borde dorado */
+
+position: relative;
+
+overflow: hidden;
+
+color: #fdf5e6; /* texto en tono crema/dorado claro para contraste */
+
+}
+
+/* ICONITOS EN ESQUINAS */
+
+.historia::before,
+
+.historia::after {
+
+content: "🍸✨";
+
+position: absolute;
+
+font-size: 28px;
+
+}
+
+.historia::before {
+
+top: -15px;
+
+left: -15px;
+
+}
+
+.historia::after {
+
+bottom: -15px;
+
+right: -15px;
+
 }
 
 /* TÍTULO PRINCIPAL */
+
 .historia h1 {
-    color: #d4aa46;
-    text-align: center;
-    font-size: 44px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
+
+color: #d4aa46; /* dorado intenso */
+
+text-align: center;
+
+font-size: 44px;
+
+font-weight: 700; /* un poco grueso */
+
+margin-bottom: 30px;
+
+letter-spacing: 1px;
+
+position: relative;
+
+}
+
+/* DECORACIÓN DORADA EN TÍTULO */
+
+.historia h1::after {
+
+content: "✨✨✨";
+
+display: block;
+
+font-size: 26px;
+
+text-align: center;
+
+margin-top: 10px;
+
 }
 
 /* SUBTÍTULOS */
+
 .historia h2 {
-    color: #c59d5f;
-    text-align: center;
-    font-size: 34px;
-    font-weight: 600;
-    margin-bottom: 25px;
+
+color: #f0d689; /* dorado más suave */
+
+text-align: center;
+
+font-size: 34px;
+
+font-weight: 600;
+
+margin-bottom: 25px;
+
+letter-spacing: 0.5px;
+
+position: relative;
+
 }
 
-/* PÁRRAFOS */
+/* ICONITOS DECORATIVOS EN SUBTÍTULOS */
+
+.historia h2::before,
+
+.historia h2::after {
+
+content: "🌸";
+
+margin: 0 8px;
+
+}
+
+/* PÁRRAFOS / H3 */
+
 .historia h3 {
-    font-size: 19px;
-    color: #444;
-    text-align: justify;
-    margin-bottom: 18px;
-    font-style: italic;
-    font-weight: 400;
+
+font-size: 19px; 
+
+color: #fdf5e6; /* crema/dorado claro */
+
+text-align: justify;
+
+margin-bottom: 18px;
+
+font-style: italic; /* cursiva elegante */
+
+font-weight: 400;
+
+position: relative;
+
 }
 
-/* EFECTO HOVER MÁS SUTIL */
+/* ICONITOS DENTRO DE PÁRRAFOS (opcional) */
+
+.historia h3::before {
+
+content: "✨ ";
+
+}
+
+/* EFECTO HOVER PARA EL BLOQUE */
+
 .historia:hover {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
-    transition: all 0.3s ease;
+
+box-shadow: 0 0 45px rgba(212, 170, 70, 0.7); /* sombra dorada más intensa */
+
+transform: translateY(-4px);
+
+transition: all 0.5s ease;
+
 }
 
-/* SEPARADORES */
+/* SEPARADORES DECORATIVOS ENTRE SECCIONES */
+
 .historia hr {
-    border: none;
-    height: 2px;
-    background: #d4aa46;
-    border-radius: 1px;
-    margin: 30px 0;
+
+border: none;
+
+height: 2px;
+
+background: linear-gradient(to right, #d4aa46, #f0d689);
+
+border-radius: 1px;
+
+margin: 30px 0;
+
+}
+
+
+
+.ofertas {
+
+display: grid;
+
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+gap: 10px;
+
+}
+
+.oferta {
+
+background: blue;
+
+border-radius: 15px;
+
+padding: 20px;
+
+text-align: center;
+
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+
+}
+
+.oferta img {
+
+width: 80%;
+
+height: 300px;
+
+object-fit: cover;
+
+border-radius: 15px;
+
+}
+
+.oferta h3 {
+
+margin: 15px 0 10px;
+
+font-size: 18px;
+
+font-weight: 600;
+
+color: yellow;
+
+}
+
+#lista-carrito {
+
+list-style: none;
+
+padding: 0;
+
+}
+
+#lista-carrito li {
+
+display: flex;
+
+align-items: center;
+
+gap: 15px;
+
+background: #fff;
+
+padding: 10px;
+
+margin-bottom: 10px;
+
+border-radius: 8px;
+
+box-shadow: 0 0 5px rgba(0,0,0,0.1);
+
+}
+
+#lista-carrito img {
+
+border-radius: 5px;
+
+}
+
+/* CONTENEDOR GENERAL CONTACTO */
+
+.contacto-contenedor {
+
+max-width: 900px;
+
+margin: 50px auto;
+
+padding: 40px;
+
+background:#ffffff;
+
+border-radius: 25px;
+
+border: 2px solid #f1e3c2;
+
+box-shadow: 0 0 30px rgba(255, 243, 215, 0.4); /*30px de desenfoque*/
+
+color: #000000;
+
+text-align: center;
+
+}
+
+/* TITULOS */
+
+.titulo-contacto {
+
+color: #d4aa46;
+
+font-size: 42px;
+
+margin-bottom: 10px; /*espacio debajo del titulo*/
+
+}
+
+.subtitulo-contacto {
+
+margin-bottom: 30px;
+
+font-size: 18px;
+
+}
+
+/* INFO CONTACTO */
+
+.info-contacto {
+
+margin-bottom: 25px;
+
+font-size: 18px;
+
+}
+
+/* boton de whatsapp en contactos */
+
+.btn-whatsapp {
+
+background: #25D366;
+
+color: white;
+
+padding: 14px 20px;
+
+border-radius: 10px;
+
+text-decoration: none; /*quita subrrayado por defecto */
+
+font-weight: bold; /*negrita*/
+
+}
+
+/* FORMULARIO */
+
+.contacto {
+
+max-width: 600px;
+
+margin: 40px auto;
+
+background: white;
+
+padding: 30px;
+
+border-radius: 15px;
+
+box-shadow: 0 0 15px rgba(0,0,0,0.08);
+
+}
+
+.contacto input,
+
+.contacto textarea {
+
+width: 100%;
+
+padding: 12px;
+
+margin-bottom: 15px;
+
+border-radius: 8px;
+
+border: 1px solid #f5f4ef;
+
+}
+
+/* UBICACIÓN */
+
+.ubicacion {
+
+margin-top: 50px;
+
+}
+
+.ubicacion iframe {
+
+border-radius: 15px;
+
+box-shadow: 0 0 20px rgba(255, 243, 215, 0.4);
+
+}
+
+/* MENSAJE FINAL */
+
+.mensaje-final {
+
+margin-top: 40px;
+
+font-weight: 500;
+
+color: #d4aa46;
+
 }
