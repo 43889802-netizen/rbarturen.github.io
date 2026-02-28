@@ -118,8 +118,10 @@ color: #222;
 
 .precio {
 
+color: red;
+font-size: 30px;
+font-weight: bold;
 color: #c59d5f;
-
 font-size: 20px;
 
 font-weight: bold;
@@ -372,6 +374,11 @@ margin: 30px 0;
 
 .ofertas {
 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+
+
 display: grid;
 
 grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -381,6 +388,27 @@ gap: 10px;
 }
 
 .oferta {
+
+    background-image: url(imagenes/fondo.png);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+}
+
+.oferta img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.oferta h3 {
+    margin: 15px 0 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #222;
+
 
 background: blue;
 
@@ -415,6 +443,7 @@ font-size: 18px;
 font-weight: 600;
 
 color: yellow;
+
 
 }
 
