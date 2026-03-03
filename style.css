@@ -236,7 +236,7 @@ position: relative;
 
 .historia h2::after {
 
-content: "🌸";
+
 
 margin: 0 8px;
 
@@ -248,7 +248,7 @@ margin: 0 8px;
 
 font-size: 19px; 
 
-color: #fdf5e6; /* crema/dorado claro */
+color: #000000; /* crema/dorado claro */ 
 
 text-align: justify;
 
