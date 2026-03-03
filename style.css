@@ -129,121 +129,49 @@ font-weight: bold;
 }
 
 /* BOTONES PRINCIPALES */
-
 button,
-
 .btn-pedido {
-
-background-color: #1f1f1f; /* color base elegante */
-
+background-color: #1f1f1f;
 color: white;
-
 border: none;
-
 padding: 12px 20px;
-
 border-radius: 10px;
-
 cursor: pointer;
-
 font-weight: 600;
-
 letter-spacing: 0.5px;
-
 transition: all 0.3s ease;
-
 text-decoration: none;
-
 display: inline-block;
-
 margin-top: 10px;
-
 }
 
-/* EFECTO HOVER BOTONES */
-
 button:hover,
-
 .btn-pedido:hover {
-
-background-color: #c59d5f; /* dorado elegante */
-
+background-color: #c59d5f;
 color: #111;
-
 }
 
 /* FOOTER */
-
 footer {
-
 background-color: #1f1f1f;
-
 color: white;
-
 text-align: center;
-
 padding: 20px;
-
 margin-top: 40px;
-
 }
 
-/* BLOQUE HISTORIA LUJO: DORADO + NEGRO */
+/* ===== HISTORIA ELEGANTE (BLANCO + DORADO) ===== */
 
 .historia {
-
-background: linear-gradient(to bottom, #000000, #1c1c1c); /* fondo negro degradado */
-
-padding: 50px;
-
-border-radius: 25px;
-
-box-shadow: 0 0 35px rgba(212, 170, 70, 0.4); /* sombra dorada suave */
-
+background: #ffffff;
+padding: 60px;
+border-radius: 20px;
+border: 2px solid #d4aa46;
+box-shadow: 0 0 25px rgba(212, 170, 70, 0.2);
 margin-bottom: 50px;
-
 line-height: 1.9;
-
 font-family: 'Georgia', serif;
-
-border: 2px solid #d4aa46; /* borde dorado */
-
-position: relative;
-
-overflow: hidden;
-
-color: #fdf5e6; /* texto en tono crema/dorado claro para contraste */
-
-}
-
-/* ICONITOS EN ESQUINAS */
-
-.historia::before,
-
-.historia::after {
-
-content: "🍸✨";
-
-position: absolute;
-
-font-size: 28px;
-
-}
-
-.historia::before {
-
-top: -15px;
-
-left: -15px;
-
-}
-
-.historia::after {
-
-bottom: -15px;
-
-right: -15px;
-
+color: #333;
 }
 
 /* TÍTULO PRINCIPAL */
