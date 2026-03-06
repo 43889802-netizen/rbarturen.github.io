@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Azkabar - Finalizar Compra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><h1>💳 Finalizar Pedido</h1></header>
+    <div class="container">
+        <form id="form-pago">
+            <h3>Datos de Envío</h3>
+            <input type="text" id="nombre" placeholder="Nombre completo" required>
+            <input type="email" id="correo" placeholder="Correo electrónico" required>
+            
+            <h3>Método de Pago</h3>
+            <select id="metodo" required>
+                <option value="tarjeta">Tarjeta de Crédito/Débito</option>
+                <option value="yape">Yape / Plin</option>
+                <option value="efectivo">Pago contra entrega</option>
+            </select>
+            
+            <div id="detalle-final">
+                <h4 id="monto-total"></h4>
+            </div>
+
+            <button type="submit" class="btn-pagar">Confirmar y Pagar</button>
+        </form>
+    </div>
+
+    <script src="js/carrito.js"></script>
+    <script>
+        // Mostrar el total guardado
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const total = carrito.reduce((acc, p) => acc + p.precio, 0);
+        document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total;
+
+        // Lógica de confirmación
+        document.getElementById("form-pago").addEventListener("submit", function(e) {
+            e.preventDefault(); // Evita que la página se recargue
+            
+            alert("✅ ¡Gracias por tu compra en AZKABAR! Tu pedido está en camino.");
+            
+            localStorage.removeItem("carrito"); // Limpiamos el carrito tras la compra
+            window.location.href = "AZKABAR.html"; // Regresamos al inicio
+        });
+    </script>
+</body>
+</html>
