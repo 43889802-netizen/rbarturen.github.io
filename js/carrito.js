@@ -1,6 +1,5 @@
-// 1. Función para agregar productos (se usa en PRODUCTOS.html)
 function agregarAlCarrito(nombre, precio, imagen) {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push({
         id: Date.now(),
         nombre: nombre,
@@ -11,12 +10,12 @@ function agregarAlCarrito(nombre, precio, imagen) {
     alert("🛒 Producto agregado al carrito");
 }
 
-// 2. Función para mostrar los productos en REALIZAR-PEDIDO.html
+
 function renderizarCarrito() {
     const lista = document.getElementById("lista-carrito");
     const totalElemento = document.getElementById("total");
     
-    if (!lista) return; // Si no estamos en la página del carrito, no hacer nada
+    if (!lista) return;
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     let total = 0;
@@ -51,15 +50,15 @@ function renderizarCarrito() {
     totalElemento.textContent = "Total: S/ " + total;
 }
 
-// 3. Función para eliminar un solo producto
+
 function eliminarDelCarrito(id) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito = carrito.filter(producto => producto.id !== id);
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    renderizarCarrito(); // Recarga la lista sin refrescar la página
+    renderizarCarrito(); 
 }
 
-// 4. Función para vaciar todo
+
 function vaciarCarrito() {
     if(confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
         localStorage.removeItem("carrito");
@@ -67,16 +66,16 @@ function vaciarCarrito() {
     }
 }
 
-// 5. Función para ir a la página de pago
+
 function irAPagar() {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
     } else {
-        // Ajusta esta ruta si PAGO.HTML está dentro de js/
+        
         window.location.href = "js/PAGO.HTML"; 
     }
 }
 
-// Ejecutar automáticamente al cargar la página
+
 document.addEventListener("DOMContentLoaded", renderizarCarrito);
