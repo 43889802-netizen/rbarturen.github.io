@@ -19,13 +19,14 @@
     <a href="OFERTAS.html">Ofertas</a>
     <a href="CONTACTOS.HTML">Contacto</a>
     <a href="HISTORIA DE LOS LICORES.HTML">Historia</a>
-    <a href="#">🛒 Carrito</a>
+    <a href="REALIZAR-PEDIDO.HTML">🛒 Carrito</a>
 </nav>
 
 <div class="container">
     <h2>🛒 Carrito de Compras</h2>
     
-    <ul id="lista-carrito"></ul>
+    <ul id="lista-carrito">
+        </ul>
 
     <div class="carrito-acciones">
         <p id="total">Total: S/ 0</p>
@@ -39,51 +40,6 @@
 </footer>
 
 <script src="js/carrito.js"></script>
-// Función para mostrar los productos en la página de Realizar Pedido
-function renderizarCarrito() {
-    const lista = document.getElementById("lista-carrito");
-    const totalElemento = document.getElementById("total");
-    if (!lista) return; // Si no estamos en la página del carrito, no hace nada
-
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    let total = 0;
-    lista.innerHTML = ""; // Limpiar lista antes de llenar
-
-    carrito.forEach(producto => {
-        let li = document.createElement("li");
-        li.innerHTML = `
-            <img src="${producto.imagen}" width="80">
-            <div class="info-item">
-                <strong>${producto.nombre}</strong><br>
-                Precio: S/ ${producto.precio}
-            </div>
-            <button onclick="eliminarDelCarrito(${producto.id})" class="btn-quitar">
-                Quitar
-            </button>
-        `;
-        lista.appendChild(li);
-        total += producto.precio;
-    });
-
-    totalElemento.textContent = "Total: S/ " + total;
-}
-
-function vaciarCarrito() {
-    localStorage.removeItem("carrito");
-    location.reload();
-}
-
-function irAPagar() {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    if (carrito.length === 0) {
-        alert("Tu carrito está vacío. ¡Elige algunos licores primero!");
-    } else {
-        window.location.href = "js/PAGO.HTML"; // Nota la ruta según tu imagen
-    }
-}
-
-// Ejecutar al cargar la página
-document.addEventListener("DOMContentLoaded", renderizarCarrito);
 
 </body>
 </html>

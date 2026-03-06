@@ -1,24 +1,82 @@
+// 1. Función para agregar productos (se usa en PRODUCTOS.html)
 function agregarAlCarrito(nombre, precio, imagen) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
     carrito.push({
         id: Date.now(),
         nombre: nombre,
         precio: precio,
         imagen: imagen
     });
-
     localStorage.setItem("carrito", JSON.stringify(carrito));
     alert("🛒 Producto agregado al carrito");
 }
 
-function eliminarDelCarrito(id) {
+// 2. Función para mostrar los productos en REALIZAR-PEDIDO.html
+function renderizarCarrito() {
+    const lista = document.getElementById("lista-carrito");
+    const totalElemento = document.getElementById("total");
     
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || []; 
+    if (!lista) return; // Si no estamos en la página del carrito, no hacer nada
 
-    
-    carrito = carrito.filter(producto => producto.id !== id);
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let total = 0;
+    lista.innerHTML = ""; 
 
-    localStorage.setItem("carrito", JSON.stringify(carrito));
-        location.reload(); 
+    if (carrito.length === 0) {
+        lista.innerHTML = "<li>Tu carrito está vacío.</li>";
+    } else {
+        carrito.forEach(producto => {
+            let li = document.createElement("li");
+            li.style.display = "flex";
+            li.style.alignItems = "center";
+            li.style.justifyContent = "space-between";
+            li.style.margin = "10px 0";
+            li.style.borderBottom = "1px solid #ddd";
+            li.style.padding = "10px";
+
+            li.innerHTML = `
+                <img src="${producto.imagen}" width="50">
+                <div style="flex-grow: 1; margin-left: 20px;">
+                    <strong>${producto.nombre}</strong><br>
+                    S/ ${producto.precio}
+                </div>
+                <button onclick="eliminarDelCarrito(${producto.id})" style="background:red; color:white; border:none; padding:5px 10px; cursor:pointer;">
+                    Quitar
+                </button>
+            `;
+            lista.appendChild(li);
+            total += producto.precio;
+        });
+    }
+    totalElemento.textContent = "Total: S/ " + total;
 }
+
+// 3. Función para eliminar un solo producto
+function eliminarDelCarrito(id) {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    carrito = carrito.filter(producto => producto.id !== id);
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    renderizarCarrito(); // Recarga la lista sin refrescar la página
+}
+
+// 4. Función para vaciar todo
+function vaciarCarrito() {
+    if(confirm("¿Estás seguro de que quieres vaciar el carrito?")) {
+        localStorage.removeItem("carrito");
+        renderizarCarrito();
+    }
+}
+
+// 5. Función para ir a la página de pago
+function irAPagar() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío.");
+    } else {
+        // Ajusta esta ruta si PAGO.HTML está dentro de js/
+        window.location.href = "js/PAGO.HTML"; 
+    }
+}
+
+// Ejecutar automáticamente al cargar la página
+document.addEventListener("DOMContentLoaded", renderizarCarrito);
