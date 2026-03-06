@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Virtual de Licores</title>
+    <title>Azkabar - Carrito de Compras</title>
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
 <header>
     <h1>🍾<B>AZKABAR</B></h1>
@@ -18,58 +19,71 @@
     <a href="OFERTAS.html">Ofertas</a>
     <a href="CONTACTOS.HTML">Contacto</a>
     <a href="HISTORIA DE LOS LICORES.HTML">Historia</a>
-    <a href="#">🛒 Producto agregado al carrito</a>
+    <a href="#">🛒 Carrito</a>
 </nav>
-<h2>🛒 Carrito de Compras</h2>
 
-<ul id="lista-carrito"></ul>
+<div class="container">
+    <h2>🛒 Carrito de Compras</h2>
+    
+    <ul id="lista-carrito"></ul>
 
-<p id="total"></p>
+    <div class="carrito-acciones">
+        <p id="total">Total: S/ 0</p>
+        <button onclick="vaciarCarrito()" class="btn-vaciar">Vaciar carrito</button>
+        <button onclick="irAPagar()" class="btn-pagar-verde">Continuar al pago</button>
+    </div>
+</div>
 
-<button onclick="vaciarCarrito()">Vaciar carrito</button>
+<footer>
+    <p>© 2026 Licorería Premium | Venta solo para mayores de 18 años</p>
+</footer>
 
 <script src="js/carrito.js"></script>
+// Función para mostrar los productos en la página de Realizar Pedido
+function renderizarCarrito() {
+    const lista = document.getElementById("lista-carrito");
+    const totalElemento = document.getElementById("total");
+    if (!lista) return; // Si no estamos en la página del carrito, no hace nada
 
-<script>
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    let lista = document.getElementById("lista-carrito");
     let total = 0;
+    lista.innerHTML = ""; // Limpiar lista antes de llenar
 
     carrito.forEach(producto => {
         let li = document.createElement("li");
-
         li.innerHTML = `
             <img src="${producto.imagen}" width="80">
-            <strong>${producto.nombre}</strong><br>
-            Precio: S/ ${producto.precio}
-            <button onclick="eliminarDelCarrito(${producto.id})" style="margin-left: 10px; color: red; cursor: pointer;">
+            <div class="info-item">
+                <strong>${producto.nombre}</strong><br>
+                Precio: S/ ${producto.precio}
+            </div>
+            <button onclick="eliminarDelCarrito(${producto.id})" class="btn-quitar">
                 Quitar
             </button>
         `;
-
         lista.appendChild(li);
         total += producto.precio;
     });
 
-    document.getElementById("total").textContent = "Total: S/ " + total;
+    totalElemento.textContent = "Total: S/ " + total;
+}
 
-    function eliminarDelCarrito(id) {
-        let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
+function vaciarCarrito() {
+    localStorage.removeItem("carrito");
+    location.reload();
+}
 
-        let nuevoCarrito = carritoActual.filter(p => p.id !== id);
-        
-        localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
-        location.reload();
+function irAPagar() {
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    if (carrito.length === 0) {
+        alert("Tu carrito está vacío. ¡Elige algunos licores primero!");
+    } else {
+        window.location.href = "js/PAGO.HTML"; // Nota la ruta según tu imagen
     }
+}
 
-    function vaciarCarrito() {
-        localStorage.removeItem("carrito");
-        location.reload();
-    }
-</script>
-<footer>
-    <p>© 2026 Licorería Premium | Venta solo para mayores de 18 años</p>
-</footer>
+// Ejecutar al cargar la página
+document.addEventListener("DOMContentLoaded", renderizarCarrito);
 
 </body>
 </html>
