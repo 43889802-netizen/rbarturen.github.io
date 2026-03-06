@@ -13,7 +13,7 @@ function agregarAlCarrito(nombre, precio, imagen) {
 }
 
 function eliminarDelCarrito(id) {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = (localStorage.getItem("carrito")) || [];
 
     carrito = carrito.filter(producto => producto.id !== id);
 
