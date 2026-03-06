@@ -30,19 +30,17 @@
 
     <script src="js/carrito.js"></script>
     <script>
-        // Mostrar el total guardado
+        
         const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         const total = carrito.reduce((acc, p) => acc + p.precio, 0);
         document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total;
-
-        // Lógica de confirmación
-        document.getElementById("form-pago").addEventListener("submit", function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+                document.getElementById("form-pago").addEventListener("submit", function(e) {
+            e.preventDefault();
             
             alert("✅ ¡Gracias por tu compra en AZKABAR! Tu pedido está en camino.");
             
-            localStorage.removeItem("carrito"); // Limpiamos el carrito tras la compra
-            window.location.href = "AZKABAR.html"; // Regresamos al inicio
+            localStorage.removeItem("carrito");
+            window.location.href = "AZKABAR.html";
         });
     </script>
 </body>
