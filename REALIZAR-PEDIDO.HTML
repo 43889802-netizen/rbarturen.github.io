@@ -42,6 +42,9 @@
             <img src="${producto.imagen}" width="80">
             <strong>${producto.nombre}</strong><br>
             Precio: S/ ${producto.precio}
+            <button onclick="eliminarDelCarrito(${producto.id})" style="margin-left: 10px; color: red; cursor: pointer;">
+                Quitar
+            </button>
         `;
 
         lista.appendChild(li);
@@ -49,6 +52,15 @@
     });
 
     document.getElementById("total").textContent = "Total: S/ " + total;
+
+    function eliminarDelCarrito(id) {
+        let carritoActual = JSON.parse(localStorage.getItem("carrito")) || [];
+
+        let nuevoCarrito = carritoActual.filter(p => p.id !== id);
+        
+        localStorage.setItem("carrito", JSON.stringify(nuevoCarrito));
+        location.reload();
+    }
 
     function vaciarCarrito() {
         localStorage.removeItem("carrito");
