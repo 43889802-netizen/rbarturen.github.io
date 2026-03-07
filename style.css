@@ -537,7 +537,37 @@ font-weight: 500;
 color: #d4aa46;
 
 }
+/*DINAMICAS JS EN CONTACTOS*/
+.error{
+border:2px solid red;
+color:red;
+}
 
+.correcto{
+border:2px solid green;
+color:green;
+}
+input, textarea{
+transition:0.3s;
+}
+#mensaje-envio{
+color:green;
+font-weight:bold;
+margin-top:10px;
+}
+#whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+font-size:28px;
+padding:15px;
+border-radius:50%;
+display:none;
+cursor:pointer;
+text-decoration: none;
+}
 /* ===== CARRUSEL PRINCIPAL ===== */
 
 .hero-carousel {

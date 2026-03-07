@@ -38,16 +38,23 @@
        📲 Cotizar por WhatsApp
     </a>
 
+    <a id="whatsapp-float" 
+    href="https://wa.me/51987654321" 
+    target="_blank">
+    📞
+    </a>
+
     <section class="contacto">
         <h2>Envíanos tu consulta</h2>
 
-        <form>
-            <input type="text" placeholder="Nombre" required> 
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="tel" placeholder="Teléfono">
-            <textarea placeholder="Escribe tu mensaje..." rows="5"></textarea>
+        <form id="form-contacto">
+            <input id="nombre" type="text" placeholder="Nombre" required>
+            <input id="correo" type="email" placeholder="Correo electrónico" required>
+            <input id="telefono" type="tel" placeholder="Teléfono">
+            <textarea id="mensaje" placeholder="Escribe tu mensaje..." rows="5"></textarea>
             <button type="submit">Enviar mensaje</button>
-        </form> 
+        </form>
+        <p id="mensaje-envio"></p>
     </section>
 
     <section class="ubicacion">
@@ -71,5 +78,6 @@
     <footer>
     <p>© 2026 Licorería Premium | Venta solo para mayores de 18 años</p>
     </footer>
+    <script src="val_form.js"></script>
  </body> 
 </html>      
