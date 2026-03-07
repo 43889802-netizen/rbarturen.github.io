@@ -7,7 +7,7 @@ function agregarAlCarrito(nombre, precio, imagen) {
         imagen: imagen
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("🛒 Producto agregado al carrito");
+    alert("🛒 Carrito");
 }
 
 
@@ -73,7 +73,7 @@ function irAPagar() {
         alert("Tu carrito está vacío.");
     } else {
         
-        window.location.href = "js/PAGO.HTML"; 
+        window.location.href = "PAGO.HTML"; 
     }
 }
 
