@@ -547,9 +547,11 @@ color:red;
 border:2px solid green;
 color:green;
 }
+
 input, textarea{
 transition:0.3s;
 }
+
 #mensaje-envio{
 color:green;
 font-weight:bold;

@@ -1,18 +1,15 @@
 /*confirmancion de envio correcto de correo*/
 const correo = document.getElementById("correo");
 
-correo.addEventListener("input", function(){/*con addel se revisa constantemente las entradas y cada cambio dispara la funcion*/
+correo.addEventListener("input", function(){
 
-    if(correo.validity.valid){/*si cumple con con formato de un correo con @ */
-        /* correo.val*/
-        correo.classList.remove("error");
+    if(correo.validity.valid){
+        /*agrega y quita la clase*/
+        correo.classList.remove("error");  
         correo.classList.add("correcto");
-
     }else{
-
         correo.classList.remove("correcto");
         correo.classList.add("error");
-
     }
 
 });
@@ -22,9 +19,7 @@ const form = document.getElementById("form-contacto");
 const mensaje = document.getElementById("mensaje-envio");
 
 form.addEventListener("submit", function(e){
-
 e.preventDefault();
-
 mensaje.innerText = "Mensaje enviado correctamente ✔";
 
 });
@@ -33,15 +28,10 @@ mensaje.innerText = "Mensaje enviado correctamente ✔";
 const botonFloat = document.getElementById("whatsapp-float");
 
 window.addEventListener("scroll", function(){
-
 if(window.scrollY > 300){
-
-botonFloat.style.display = "block";
-
+    botonFloat.style.display = "block";
 }else{
-
-botonFloat.style.display = "none";
-
+    botonFloat.style.display = "none";
 }
 
 });
