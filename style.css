@@ -539,12 +539,10 @@ color: #d4aa46;
 }
 /*DINAMICAS JS EN CONTACTOS*/
 .error{
-border:2px solid red;
 color:red;
 }
 
 .correcto{
-border:2px solid green;
 color:green;
 }
 
