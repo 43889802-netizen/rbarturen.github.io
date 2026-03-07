@@ -13,15 +13,12 @@ background-color: #f4f4f4;
 /* HEADER */
 
 header {
-
-background-color: #2c2c2c;
-
+background-image: url(imagenes/BANNER.png);
+background-size: 100% 100%;
+background-position: center;
 color: white;
-
 padding: 20px;
-
 text-align: center;
-
 }
 
 /* NAVEGACIÓN */
@@ -74,20 +71,25 @@ gap: 30px;
 
 }
 
-/* TARJETAS DE PRODUCTO */
-
+/* TARJETAS DE PRODUCTO (SIN MARCO) */
 .producto {
+    /* Cambiamos 'white' por la ruta de tu imagen */
+    background-image: url(imagenes/FONDO_BLANCO.png); 
+    
+    /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    background-size: cover; 
+    
+    /* Centra la imagen para que no se corte por un solo lado */
+    background-position: center; 
+    
+    /* Evita que la imagen se duplique si el contenedor es muy grande */
+    background-repeat: no-repeat;
 
-background: white;
 
-border-radius: 15px;
-
-padding: 20px;
-
-text-align: center;
-
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
-
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: none; /* quitado el marco */
 }
 
 .producto img {
