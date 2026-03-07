@@ -541,17 +541,17 @@ color: #d4aa46;
 }
 /*DINAMICAS JS EN CONTACTOS*/
 .error{
-border:2px solid red;
 color:red;
 }
 
 .correcto{
-border:2px solid green;
 color:green;
 }
+
 input, textarea{
 transition:0.3s;
 }
+
 #mensaje-envio{
 color:green;
 font-weight:bold;
