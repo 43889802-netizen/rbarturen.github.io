@@ -22,7 +22,17 @@
                 <option value="efectivo">Pago contra entrega</option>
             </select>
 
-            <div id="contenedor-yape">
+            <div id="contenedor-tarjeta">
+                <h4>Datos de la Tarjeta</h4>
+                <input type="text" class="input-tarjeta" id="num-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16" required>
+                <input type="text" class="input-tarjeta" placeholder="Nombre del Titular" required>
+                <div class="fila-tarjeta">
+                    <input type="text" class="input-tarjeta" placeholder="MM/AA" maxlength="5" required>
+                    <input type="password" class="input-tarjeta" placeholder="CVV" maxlength="3" required>
+                </div>
+            </div>
+
+            <div id="contenedor-yape" style="display:none;">
                 <p>Escanea el código para yapear:</p>
                 <img src="imagenes/qr-yape.png" alt="QR Yape Azkabar">
                 <span class="numero-yape">O yapea al: <strong>944 870 211</strong></span>
@@ -38,27 +48,46 @@
     </div>
 
     <script>
-        // Función para mostrar el QR
+
         function verificarMetodo() {
             const metodo = document.getElementById("metodo").value;
             const cajaYape = document.getElementById("contenedor-yape");
-            cajaYape.style.display = (metodo === "yape") ? "block" : "none";
+            const cajaTarjeta = document.getElementById("contenedor-tarjeta");
+
+            if (metodo === "yape") {
+                cajaYape.style.display = "block";
+                cajaTarjeta.style.display = "none";
+                configurarRequeridos(cajaTarjeta, false);
+            } else if (metodo === "tarjeta") {
+                cajaYape.style.display = "none";
+                cajaTarjeta.style.display = "block";
+                configurarRequeridos(cajaTarjeta, true);
+            } else {
+                cajaYape.style.display = "none";
+                cajaTarjeta.style.display = "none";
+                configurarRequeridos(cajaTarjeta, false);
+            }
         }
 
-        // Lógica del Total
+        function configurarRequeridos(contenedor, estado) {
+            const inputs = contenedor.getElementsByTagName('input');
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].required = estado;
+            }
+        }
+
         const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
         document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total.toFixed(2);
 
-        // Envío del formulario
         document.getElementById("form-pago").addEventListener("submit", function(e) {
             e.preventDefault();
             const metodoSeleccionado = document.getElementById("metodo").value;
             
             if (metodoSeleccionado === "yape") {
-                alert("✅ ¡Pedido registrado! Envía la captura de tu Yape al WhatsApp de AZKABAR para procesar tu entrega.");
+                alert("✅ ¡Pedido registrado! Por favor, envía la captura de tu Yape al WhatsApp de AZKABAR para procesar tu entrega.");
             } else {
-                alert("✅ ¡Gracias por tu compra en AZKABAR! Tu pedido está en camino.");
+                alert("✅ ¡Pago procesado con éxito! Gracias por tu compra en AZKABAR.");
             }
             
             localStorage.removeItem("carrito");

@@ -1,15 +1,16 @@
 function agregarAlCarrito(nombre, precio, imagen) {
-      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+    
     carrito.push({
         id: Date.now(),
         nombre: nombre,
-        precio: precio,
+        precio: parseFloat(precio),
         imagen: imagen
     });
+    
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("🛒 Se agrego al carrito");
+    alert("🛒 Se agregó al carrito correctamente");
 }
-
 
 function renderizarCarrito() {
     const lista = document.getElementById("lista-carrito");
@@ -26,20 +27,14 @@ function renderizarCarrito() {
     } else {
         carrito.forEach(producto => {
             let li = document.createElement("li"); 
-            li.style.display = "flex";
-            li.style.alignItems = "center";
-            li.style.justifyContent = "space-between";
-            li.style.margin = "10px 0";
-            li.style.borderBottom = "1px solid #ddd";
-            li.style.padding = "10px";
-
+            li.className = "item-carrito";
             li.innerHTML = `
                 <img src="${producto.imagen}" width="50">
                 <div style="flex-grow: 1; margin-left: 20px;">
                     <strong>${producto.nombre}</strong><br>
-                    S/ ${producto.precio}
+                    S/ ${producto.precio.toFixed(2)}
                 </div>
-                <button onclick="eliminarDelCarrito(${producto.id})" style="background:red; color:white; border:none; padding:5px 10px; cursor:pointer;">
+                <button onclick="eliminarDelCarrito(${producto.id})" class="btn-quitar">
                     Quitar
                 </button>
             `;
@@ -47,7 +42,7 @@ function renderizarCarrito() {
             total += producto.precio;
         });
     }
-    totalElemento.textContent = "Total: S/ " + total;
+    if (totalElemento) totalElemento.textContent = "Total: S/ " + total.toFixed(2);
 }
 
 
@@ -72,7 +67,6 @@ function irAPagar() {
     if (carrito.length === 0) {
         alert("Tu carrito está vacío.");
     } else {
-        
         window.location.href = "PAGO.HTML"; 
     }
 }
