@@ -641,7 +641,35 @@ text-decoration: none;  /*quita el subrrayado*/
     text-align: right;
 }
 
+#contenedor-yape {
+    display: none;
+    background-color: #ffffff;
+    border: 3px solid #742384;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
+#contenedor-yape p {
+    color: #742384;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#contenedor-yape img {
+    width: 200px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.numero-yape {
+    font-size: 1.2em;
+    display: block;
+    margin-top: 10px;
+    color: #333;
+}
 
 
 
