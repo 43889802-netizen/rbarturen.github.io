@@ -53,7 +53,7 @@ function renderizarCarrito() {
 
 function eliminarDelCarrito(id) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito = carrito.filter(producto => producto.id !== id);
+    carrito = carrito.filt  er(producto => producto.id !== id);
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderizarCarrito(); 
 }
