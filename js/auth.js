@@ -1,57 +1,78 @@
-// Inicializar Firebase
+// IMPORTS DESDE CDN (clave)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { 
-    getAuth, 
-    signInWithPopup, 
-    GoogleAuthProvider, 
-    onAuthStateChanged,
-    signOut 
+  getAuth, 
+  signInWithPopup, 
+  GoogleAuthProvider, 
+  onAuthStateChanged,
+  signOut 
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
+// TU CONFIG (el que ya tienes)
 const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "TU_AUTH_DOMAIN",
-  projectId: "TU_PROJECT_ID",
+  apiKey: "AIzaSyCoAsO3NaglYwz2BWKLFxjo1XDbmh34vFs",
+  authDomain: "azkabar-web.firebaseapp.com",
+  projectId: "azkabar-web",
+  storageBucket: "azkabar-web.firebasestorage.app",
+  messagingSenderId: "647830654519",
+  appId: "1:647830654519:web:da1946338da7bf694279b2"
 };
 
+// Inicializar
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// Elementos HTML
+// CONTENEDOR
 const authContainer = document.getElementById("auth-container");
 
 // LOGIN
 function login() {
-    signInWithPopup(auth, provider)
-        .then((result) => {
-            console.log("Logeado:", result.user.displayName);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
+  signInWithPopup(auth, provider)
+    .catch(error => console.error(error));
 }
 
 // LOGOUT
 function logout() {
-    signOut(auth);
+  signOut(auth);
 }
 
-// CAMBIO DINÁMICO DEL BOTÓN
+// ESTADO DE SESIÓN
 onAuthStateChanged(auth, (user) => {
-    if (user) {
-        authContainer.innerHTML = `
-            <button id="btn-user">Bienvenido ${user.displayName}</button>
-            <button id="btn-logout">Salir</button>
-        `;
+  if (user) {
+    authContainer.innerHTML = `
+    <div class="user-menu">
+        <button id="btn-user">👤 Bienvenido ${user.displayName}</button>
+        <div id="dropdown-menu" class="dropdown hidden">
+        <button id="btn-logout">Cerrar sesión</button>
+        </div>
+    </div>
+    `;
 
-        document.getElementById("btn-logout").addEventListener("click", logout);
+    const btnUser = document.getElementById("btn-user");
+    const dropdown = document.getElementById("dropdown-menu");
+    const btnLogout = document.getElementById("btn-logout");
 
-    } else {
-        authContainer.innerHTML = `
-            <button id="btn-login">Iniciar sesión</button>
-        `;
+    // Mostrar / ocultar menú
+    btnUser.addEventListener("click", () => {
+    dropdown.classList.toggle("hidden");
+    });
 
-        document.getElementById("btn-login").addEventListener("click", login);
+    // Logout
+    btnLogout.addEventListener("click", logout);
+
+    // Cerrar si haces click fuera
+    document.addEventListener("click", (e) => {
+    if (!btnUser.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.add("hidden");
     }
+    });
+
+  } else {
+    authContainer.innerHTML = `
+      <button id="btn-login">Iniciar sesión</button>
+    `;
+
+    document.getElementById("btn-login").addEventListener("click", login);
+  }
 });

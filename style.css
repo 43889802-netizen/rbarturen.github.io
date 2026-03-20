@@ -641,6 +641,44 @@ text-decoration: none;  /*quita el subrrayado*/
     text-align: right;
 }
 
+
+#auth-container {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+#auth-container button {
+    margin-left: 10px;
+}
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown {
+    position: absolute;
+    top: 10;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.dropdown button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+
 #contenedor-yape {
     display: none;
     background-color: #ffffff;
@@ -702,6 +740,7 @@ text-decoration: none;  /*quita el subrrayado*/
     margin-top: 0;
     color: #333;
 }
+
 
 
 
