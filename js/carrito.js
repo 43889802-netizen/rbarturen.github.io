@@ -7,7 +7,7 @@ function agregarAlCarrito(nombre, precio, imagen) {
         imagen: imagen
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("🛒 Carrito");
+    alert("🛒 Se agrego al carrito");
 }
 
 
@@ -53,7 +53,7 @@ function renderizarCarrito() {
 
 function eliminarDelCarrito(id) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-    carrito = carrito.filt  er(producto => producto.id !== id);
+    carrito = carrito.filter(producto => producto.id !== id);
     localStorage.setItem("carrito", JSON.stringify(carrito));
     renderizarCarrito(); 
 }
