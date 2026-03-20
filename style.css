@@ -641,7 +641,7 @@ text-decoration: none;  /*quita el subrrayado*/
     text-align: right;
 }
 
-<<<<<<< HEAD
+
 #auth-container {
     position: absolute;
     top: 20px;
@@ -679,7 +679,6 @@ text-decoration: none;  /*quita el subrrayado*/
     display: none;
 }
 
-=======
 #contenedor-yape {
     display: none;
     background-color: #ffffff;
@@ -709,7 +708,7 @@ text-decoration: none;  /*quita el subrrayado*/
     margin-top: 10px;
     color: #333;
 }
->>>>>>> 8e8b636dbdf640fc7174f1c945dbad4f2f48a5f9
+
 
 
 
