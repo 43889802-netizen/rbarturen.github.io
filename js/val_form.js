@@ -20,8 +20,6 @@ const mensaje = document.getElementById("mensaje-envio");
 
 form.addEventListener("submit", function(e){
 e.preventDefault();
-mensaje.innerText = "Mensaje enviado correctamente ✔";
-
 });
 
 /*animacion al boton de wsp*/
