@@ -558,17 +558,17 @@ font-weight:bold;
 margin-top:10px;
 }
 #whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-background:#25D366;
-color:white;
-font-size:28px;
-padding:15px;
-border-radius:50%;
-display:none;
-cursor:pointer;
-text-decoration: none;
+position:fixed;/*el boton se pega a la pantalla no al documento */
+bottom:25px; /*posiciona al botn */
+right:25px; /*posiciona al botn */
+background:#25D366; /*color */
+color:white;/*color de letra */
+font-size:28px; /*tamaño de letra*/
+padding:15px; /*distancia interna*/
+border-radius:50%; /*forma de circulo*/
+display:none; /*no muestra la pagina*/
+cursor:pointer; /*tamaño de letra*/
+text-decoration: none;  /*quita el subrrayado*/
 }
 /* ===== CARRUSEL PRINCIPAL ===== */
 

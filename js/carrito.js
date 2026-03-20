@@ -25,7 +25,7 @@ function renderizarCarrito() {
         lista.innerHTML = "<li>Tu carrito está vacío.</li>";
     } else {
         carrito.forEach(producto => {
-            let li = document.createElement("li");
+            let li = document.createElement("li"); 
             li.style.display = "flex";
             li.style.alignItems = "center";
             li.style.justifyContent = "space-between";
