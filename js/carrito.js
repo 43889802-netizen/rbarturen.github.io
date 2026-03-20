@@ -7,7 +7,7 @@ function agregarAlCarrito(nombre, precio, imagen) {
         imagen: imagen
     });
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    alert("🛒 Carrito");
+    alert("🛒 Se agrego al carrito");
 }
 
 
