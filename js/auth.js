@@ -1,34 +1,44 @@
-// IMPORTS DESDE CDN (clave)
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+// IMportamos funciones del SDK de firebase(Software Development Kit - herramientas)
+
+import { initializeApp //enlaza nuestra pagina web con firebase
+
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { 
-  getAuth, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  onAuthStateChanged,
-  signOut 
+  getAuth, // activa el modulo authentication
+  signInWithPopup,  // Abre el popup de google(pestaña emergente para inciiar sesion)
+  GoogleAuthProvider,  // define que se usará la cuenta de google para el login
+  onAuthStateChanged, //Detecta si el usuario está logeado
+  signOut  //Cierra sesión
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-// TU CONFIG (el que ya tienes)
+
+
+
+
+// Configuracion (Especificamos los datos requeridos para conectarnos a nuestro proyecto de firebase)
 const firebaseConfig = {
-  apiKey: "AIzaSyCoAsO3NaglYwz2BWKLFxjo1XDbmh34vFs",
-  authDomain: "azkabar-web.firebaseapp.com",
-  projectId: "azkabar-web",
-  storageBucket: "azkabar-web.firebasestorage.app",
+  apiKey: "AIzaSyCoAsO3NaglYwz2BWKLFxjo1XDbmh34vFs", //firebase sabrá que app hace la peticion
+  authDomain: "azkabar-web.firebaseapp.com", //Dominio donde se realizará la autenticacion
+  projectId: "azkabar-web", //nombre del proyecto
+  storageBucket: "azkabar-web.firebasestorage.app", 
   messagingSenderId: "647830654519",
-  appId: "1:647830654519:web:da1946338da7bf694279b2"
+  appId: "1:647830654519:web:da1946338da7bf694279b2" //identificador de app
 };
 
 // Inicializar
-const app = initializeApp(firebaseConfig);
+//“Crea un objeto que representa mi aplicación conectada al proyecto azkabar-web en Firebase”
+const app = initializeApp(firebaseConfig);  
+//“Obtenemos el módulo de autenticación asociado a ESTA app”
 const auth = getAuth(app);
+//creamos el objeto proveedor de autenticacion con google
 const provider = new GoogleAuthProvider();
 
-// CONTENEDOR
+// CONTENEDOR busca un emelento en el html
 const authContainer = document.getElementById("auth-container");
 
 // LOGIN
 function login() {
-  signInWithPopup(auth, provider)
+  signInWithPopup(auth, provider) //funcion de firebase que abre el popup
     .catch(error => console.error(error));
 }
 
