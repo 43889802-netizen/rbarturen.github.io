@@ -29,11 +29,11 @@
 
             <div id="contenedor-tarjeta" style="display: none;">
                 <h4>Datos de la Tarjeta</h4>
-                <input type="text" class="input-tarjeta" id="num-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16">
-                <input type="text" class="input-tarjeta" id="titular" placeholder="Nombre del Titular">
+                <input type="text" class="input-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16">
+                <input type="text" class="input-tarjeta" placeholder="Nombre del Titular">
                 <div class="fila-tarjeta">
-                    <input type="text" class="input-tarjeta" id="expira" placeholder="MM/AA" maxlength="5">
-                    <input type="password" class="input-tarjeta" id="cvv" placeholder="CVV" maxlength="3">
+                    <input type="text" class="input-tarjeta" placeholder="MM/AA" maxlength="5">
+                    <input type="password" class="input-tarjeta" placeholder="CVV" maxlength="3">
                 </div>
             </div>
 
@@ -41,48 +41,28 @@
                 <p>Escanea el código para yapear:</p>
                 <img src="imagenes/qr-yape.png" alt="QR Yape Azkabar">
                 <span class="numero-yape">O yapea al: <strong>944 870 211</strong></span>
-                <p><small>Titular: Azkabar Licores</small></p>
             </div>
             
-            <div id="detalle-final">
-                <h4 id="monto-total"></h4>
-            </div>
-
+            <h4 id="monto-total">Total a pagar: S/ 0.00</h4>
             <button type="submit" class="btn-pagar">Confirmar y Pagar</button>
         </form>
     </div>
 
-    <script src="js/carrito.js"></script>
     <script>
-        // Lógica específica de la página de pago
         function verificarMetodo() {
             const metodo = document.getElementById("metodo").value;
             const cajaYape = document.getElementById("contenedor-yape");
             const cajaTarjeta = document.getElementById("contenedor-tarjeta");
 
-            if (metodo === "yape") {
-                cajaYape.style.display = "block";
-                cajaTarjeta.style.display = "none";
-                configurarRequeridos(cajaTarjeta, false);
-            } else if (metodo === "tarjeta") {
-                cajaYape.style.display = "none";
-                cajaTarjeta.style.display = "block";
-                configurarRequeridos(cajaTarjeta, true);
-            } else {
-                cajaYape.style.display = "none";
-                cajaTarjeta.style.display = "none";
-                configurarRequeridos(cajaTarjeta, false);
-            }
-        }
-
-        function configurarRequeridos(contenedor, estado) {
-            const inputs = contenedor.getElementsByTagName('input');
+            cajaYape.style.display = (metodo === "yape") ? "block" : "none";
+            cajaTarjeta.style.display = (metodo === "tarjeta") ? "block" : "none";
+            
+            const inputs = cajaTarjeta.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
-                inputs[i].required = estado;
+                inputs[i].required = (metodo === "tarjeta");
             }
         }
 
-        // Cargar total al iniciar
         window.onload = function() {
             const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
