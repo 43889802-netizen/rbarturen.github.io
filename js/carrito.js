@@ -1,6 +1,3 @@
-/* =========================================
-   AGREGAR PRODUCTOS AL CARRITO
-   ========================================= */
 function agregarAlCarrito(nombre, precio, imagen) {
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carrito.push({
@@ -13,9 +10,6 @@ function agregarAlCarrito(nombre, precio, imagen) {
     alert("✅ Se agregó al carrito correctamente");
 }
 
-/* =========================================
-   RENDERIZAR CARRITO (VISTA)
-   ========================================= */
 function renderizarCarrito() {
     const lista = document.getElementById("lista-carrito");
     const totalElemento = document.getElementById("total");
