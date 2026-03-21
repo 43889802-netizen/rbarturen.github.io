@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Azkabar - Finalizar Compra</title>
+    <title>Azkabar - Finalizar Pedido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,10 +13,9 @@
     <div class="container">
         <form id="form-pago">
             <h3>Datos de Envío</h3>
-            <div class="fila-envio">
-                <input type="text" id="nombre" placeholder="Nombre completo" required>
-                <input type="email" id="correo" placeholder="Correo electrónico" required>
-                <input type="text" id="telefono" placeholder="Teléfono de contacto" required>
+            <div class="fila-tarjeta"> <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="text" placeholder="Teléfono de contacto" required>
             </div>
             
             <h3>Método de Pago</h3>
@@ -24,27 +23,26 @@
                 <option value="" disabled selected>Selecciona un método de pago</option>
                 <option value="tarjeta">Tarjeta de Crédito/Débito</option>
                 <option value="yape">Yape / Plin</option>
-                <option value="efectivo">Pago contra entrega</option>
             </select>
 
             <div id="contenedor-tarjeta" style="display: none;">
                 <h4>Datos de la Tarjeta</h4>
-                <input type="text" class="input-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16">
-                <input type="text" class="input-tarjeta" placeholder="Nombre del Titular">
+                <input type="text" class="input-tarjeta" placeholder="Número de Tarjeta" maxlength="16">
+                <input type="text" class="input-tarjeta" placeholder="Titular">
                 <div class="fila-tarjeta">
-                    <input type="text" class="input-tarjeta" placeholder="MM/AA" maxlength="5">
-                    <input type="password" class="input-tarjeta" placeholder="CVV" maxlength="3">
+                    <input type="text" placeholder="MM/AA" maxlength="5">
+                    <input type="password" placeholder="CVV" maxlength="3">
                 </div>
             </div>
 
-            <div id="contenedor-yape" style="display: none;">
+            <div id="contenedor-yape">
                 <p>Escanea el código para yapear:</p>
-                <img src="imagenes/qr-yape.png" alt="QR Yape Azkabar">
-                <span class="numero-yape">O yapea al: <strong>944 870 211</strong></span>
+                <img src="imagenes/qr-yape.png" alt="QR Yape">
+                <span class="numero-yape">O yapea al: 944 870 211</span>
             </div>
             
             <h4 id="monto-total">Total a pagar: S/ 0.00</h4>
-            <button type="submit" class="btn-pagar">Confirmar y Pagar</button>
+            <button type="submit" class="btn-pedido">Confirmar y Pagar</button>
         </form>
     </div>
 
@@ -56,16 +54,29 @@
 
             cajaYape.style.display = (metodo === "yape") ? "block" : "none";
             cajaTarjeta.style.display = (metodo === "tarjeta") ? "block" : "none";
-            
-            const inputs = cajaTarjeta.getElementsByTagName('input');
-            for (let i = 0; i < inputs.length; i++) {
-                inputs[i].required = (metodo === "tarjeta");
-            }
         }
+
+        document.getElementById("form-pago").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const metodo = document.getElementById("metodo").value;
+            const nombre = document.getElementById("nombre").value;
+
+            if (metodo === "yape") {
+                alert("Perfecto " + nombre + ", realizó su pago. Envíe la captura al 944 870 211.");
+            } else {
+                alert("¡Pago con tarjeta procesado con éxito!");
+            }
+
+            // LIMPIEZA TOTAL
+            localStorage.removeItem("carrito"); // Borra productos de la memoria
+            this.reset(); // Limpia los cuadros de texto
+            document.getElementById("monto-total").textContent = "Total a pagar: S/ 0.00"; // Resetea el monto visual
+            verificarMetodo(); // Oculta secciones de pago
+        });
 
         window.onload = function() {
             const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-            const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
+            const total = carrito.reduce((acc, p) => acc + (p.precio || 0), 0);
             document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total.toFixed(2);
         };
     </script>
