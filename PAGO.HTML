@@ -6,35 +6,35 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>💳 Finalizar Pedido</h1>
-        <div id="auth-container"></div>
-    </header>
+    <header><h1>💳 Finalizar Pedido</h1></header>
     <div class="container">
         <form id="form-pago">
             <h3>Datos de Envío</h3>
-            <input type="text" id="nombre" placeholder="Nombre completo" required>
-            <input type="email" id="correo" placeholder="Correo electrónico" required>
-            <input type="tel" id="telefono" placeholder="Teléfono de contacto" required>
-
+            <div class="fila-envio">
+                <input type="text" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" id="correo" placeholder="Correo electrónico" required>
+                <input type="text" id="telefono" placeholder="Teléfono de contacto" required>
+            </div>
+            
             <h3>Método de Pago</h3>
             <select id="metodo" required onchange="verificarMetodo()">
-                <option value="">Selecciona un método de pago</option>
+                <option value="" disabled selected>Selecciona un método de pago</option>
                 <option value="tarjeta">Tarjeta de Crédito/Débito</option>
                 <option value="yape">Yape / Plin</option>
                 <option value="efectivo">Pago contra entrega</option>
             </select>
 
-            <div id="contenedor-tarjeta">
+            <div id="contenedor-tarjeta" style="display: none;">
                 <h4>Datos de la Tarjeta</h4>
-                <input type="text" class="input-tarjeta" id="num-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16" required>
-                <input type="text" class="input-tarjeta" placeholder="Nombre del Titular" required>
+                <input type="text" class="input-tarjeta" id="num-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16">
+                <input type="text" class="input-tarjeta" id="titular" placeholder="Nombre del Titular">
                 <div class="fila-tarjeta">
-                    <input type="text" class="input-tarjeta" placeholder="MM/AA" maxlength="5" required>
-                    <input type="password" class="input-tarjeta" placeholder="CVV" maxlength="3" required>
+                    <input type="text" class="input-tarjeta" id="expira" placeholder="MM/AA" maxlength="5">
+                    <input type="password" class="input-tarjeta" id="cvv" placeholder="CVV" maxlength="3">
                 </div>
             </div>
 
-            <div id="contenedor-yape" style="display:none;">
+            <div id="contenedor-yape" style="display: none;">
                 <p>Escanea el código para yapear:</p>
                 <img src="imagenes/qr-yape.png" alt="QR Yape Azkabar">
                 <span class="numero-yape">O yapea al: <strong>944 870 211</strong></span>
@@ -50,7 +50,7 @@
     </div>
 
     <script>
-
+        // 1. Mostrar/Ocultar métodos de pago dinámicamente
         function verificarMetodo() {
             const metodo = document.getElementById("metodo").value;
             const cajaYape = document.getElementById("contenedor-yape");
@@ -71,6 +71,7 @@
             }
         }
 
+        // 2. Configurar campos obligatorios según el método seleccionado
         function configurarRequeridos(contenedor, estado) {
             const inputs = contenedor.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
@@ -82,20 +83,22 @@
         const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
         document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total.toFixed(2);
 
+        // 3. Manejar el envío del formulario
         document.getElementById("form-pago").addEventListener("submit", function(e) {
             e.preventDefault();
             const metodoSeleccionado = document.getElementById("metodo").value;
             
             if (metodoSeleccionado === "yape") {
-                alert("✅ ¡Pedido registrado! Por favor, envía la captura de tu Yape al WhatsApp de AZKABAR para procesar tu entrega.");
+                alert("✅ ¡Pedido registrado! Envía la captura de tu Yape al WhatsApp de AZKABAR.");
+            } else if (metodoSeleccionado === "tarjeta") {
+                alert("✅ Pago con tarjeta procesado con éxito.");
             } else {
-                alert("✅ ¡Pago procesado con éxito! Gracias por tu compra en AZKABAR.");
+                alert("✅ ¡Pedido confirmado! Pagas al recibir el producto.");
             }
             
             localStorage.removeItem("carrito");
             window.location.href = "index.html";
         });
     </script>
-    <script type="module" src="js/auth.js"></script>
 </body>
 </html>

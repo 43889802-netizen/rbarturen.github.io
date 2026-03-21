@@ -1,615 +1,179 @@
-/* FUENTES Y FONDO GENERAL */
-
+/* =========================================
+   1. FUENTES Y CONFIGURACIÓN GENERAL
+   ========================================= */
 body {
-
-font-family: 'Times New Roman', Times, serif, sans-serif;
-
-margin: 0;
-
-background-color: #f4f4f4;
-
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
-
-/* HEADER */
 
 header {
-background-image: url(imagenes/BANNER.png);
-background-size: 100% 100%;
-background-position: center;
-color: white;
-padding: 20px;
-text-align: center;
+    background-image: url(imagenes/BANNER.png);
+    background-size: 100% 100%;
+    background-position: center;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-/* NAVEGACIÓN */
-
 nav {
-
-background-color: #444;
-
-padding: 10px;
-
-text-align: center;
-
+    background-color: #444;
+    padding: 10px;
+    text-align: center;
 }
 
 nav a {
-
-color: rgb(255, 255, 255);
-
-margin: 0 15px;
-
-text-decoration: none;
-
-font-weight: bold;
-
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 nav a:hover {
-
-text-decoration: underline;
-
+    text-decoration: underline;
 }
-
-/* CONTENEDOR PRINCIPAL */
 
 .container {
-
-padding: 40px;
-
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* GRID DE PRODUCTOS */
-
-.productos {
-
-display: grid;
-
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-
-gap: 30px;
-
+/* =========================================
+   2. GRID DE PRODUCTOS Y OFERTAS
+   ========================================= */
+.productos, .ofertas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
-/* TARJETAS DE PRODUCTO (SIN MARCO) */
-.producto {
-    /* Cambiamos 'white' por la ruta de tu imagen */
+.producto, .oferta {
     background-image: url(imagenes/FONDO_BLANCO.png); 
-    
-    /* Asegura que la imagen cubra todo el espacio sin deformarse */
     background-size: cover; 
-    
-    /* Centra la imagen para que no se corte por un solo lado */
     background-position: center; 
-    
-    /* Evita que la imagen se duplique si el contenedor es muy grande */
     background-repeat: no-repeat;
-
-
     border-radius: 20px;
     padding: 20px;
     text-align: center;
-    box-shadow: none; /* quitado el marco */
+    transition: transform 0.3s ease;
 }
 
-.producto img {
-
-width: 100%;
-
-height: 300px;
-
-object-fit: cover;
-
-border-radius: 12px;
-
+.producto:hover {
+    transform: translateY(-5px);
 }
 
-.producto h3 {
-
-margin: 15px 0 10px;
-
-font-size: 18px;
-
-font-weight: 600;
-
-color: #222;
-
-}
-
-/* PRECIO */
-
-.precio {
-
-color: red;
-font-size: 30px;
-font-weight: bold;
-color: #c59d5f;
-font-size: 20px;
-
-font-weight: bold;
-
-}
-
-/* BOTONES PRINCIPALES */
-button,
-.btn-pedido {
-background-color: #1f1f1f;
-color: white;
-border: none;
-padding: 12px 20px;
-border-radius: 10px;
-cursor: pointer;
-font-weight: 600;
-letter-spacing: 0.5px;
-transition: all 0.3s ease;
-text-decoration: none;
-display: inline-block;
-margin-top: 10px;
-}
-
-button:hover,
-.btn-pedido:hover {
-background-color: #c59d5f;
-color: #111;
-}
-
-/* FOOTER */
-footer {
-background-color: #1f1f1f;
-color: white;
-text-align: center;
-padding: 20px;
-margin-top: 40px;
-}
-
-/* ===== HISTORIA ELEGANTE (BLANCO + DORADO) ===== */
-
-.historia {
-background: #ffffff;
-padding: 60px;
-border-radius: 20px;
-border: 2px solid #d4aa46;
-box-shadow: 0 0 25px rgba(212, 170, 70, 0.2);
-margin-bottom: 50px;
-line-height: 1.9;
-font-family: 'Georgia', serif;
-color: #333;
-}
-
-/* TÍTULO PRINCIPAL */
-
-.historia h1 {
-
-color: #d4aa46; /* dorado intenso */
-
-text-align: center;
-
-font-size: 44px;
-
-font-weight: 700; /* un poco grueso */
-
-margin-bottom: 30px;
-
-letter-spacing: 1px;
-
-position: relative;
-
-}
-
-/* DECORACIÓN DORADA EN TÍTULO */
-
-.historia h1::after {
-
-
-display: block;
-
-font-size: 26px;
-
-text-align: center;
-
-margin-top: 10px;
-
-}
-
-/* SUBTÍTULOS */
-
-.historia h2 {
-
-color: #bf9c35; /* dorado más suave */
-
-text-align: center;
-
-font-size: 34px;
-
-font-weight: 600;
-
-margin-bottom: 25px;
-
-letter-spacing: 0.5px;
-
-position: relative;
-
-}
-
-/* ICONITOS DECORATIVOS EN SUBTÍTULOS */
-
-.historia h2::before,
-
-.historia h2::after {
-
-
-
-margin: 0 8px;
-
-}
-
-/* PÁRRAFOS / H3 */
-
-.historia h3 {
-
-font-size: 19px; 
-
-color: #000000; /* crema/dorado claro */ 
-
-text-align: justify;
-
-margin-bottom: 18px;
-
-font-style: italic; /* cursiva elegante */
-
-font-weight: 400;
-
-position: relative;
-
-}
-
-/* ICONITOS DENTRO DE PÁRRAFOS (opcional) */
-
-.historia h3::before {
-
-content: "✨ ";
-
-}
-
-/* EFECTO HOVER PARA EL BLOQUE */
-
-.historia:hover {
-
-box-shadow: 0 0 45px rgba(212, 170, 70, 0.7); /* sombra dorada más intensa */
-
-transform: translateY(-4px);
-
-transition: all 0.5s ease;
-
-}
-
-/* SEPARADORES DECORATIVOS ENTRE SECCIONES */
-
-.historia hr {
-
-border: none;
-
-height: 2px;
-
-background: linear-gradient(to right, #d4aa46, #f0d689);
-
-border-radius: 1px;
-
-margin: 30px 0;
-
-}
-
-
-
-.ofertas {
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 10px;
-
-}
-
-.oferta {
-
-    background-image: url(imagenes/fondo.png);
-    border-radius: 20px;
-    padding: 40px;
-    text-align: center;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-}
-
-.oferta img {
+.producto img, .oferta img {
     width: 100%;
     height: 300px;
     object-fit: cover;
     border-radius: 12px;
 }
 
-.oferta h3 {
-    margin: 15px 0 10px;
-    font-size: 18px;
+.precio {
+    color: #c59d5f;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* =========================================
+   3. BOTONES
+   ========================================= */
+button, .btn-pedido, .btn-pagar, .btn-pagar-verde {
+    background-color: #1f1f1f;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
     font-weight: 600;
-    color: #222;
-
-
-background: blue;
-
-border-radius: 15px;
-
-padding: 20px;
-
-text-align: center;
-
-box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
-
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
 }
 
-.oferta img {
-
-width: 80%;
-
-height: 300px;
-
-object-fit: cover;
-
-border-radius: 15px;
-
+button:hover, .btn-pedido:hover {
+    background-color: #c59d5f;
+    color: #111;
 }
 
-.oferta h3 {
-
-margin: 15px 0 10px;
-
-font-size: 18px;
-
-font-weight: 600;
-
-color: yellow;
-
-
+.btn-quitar {
+    background-color: #ff4d4d !important;
+    color: white;
 }
 
-#lista-carrito {
-
-list-style: none;
-
-padding: 0;
-
+.btn-pagar-verde {
+    background-color: #28a745 !important;
 }
 
-#lista-carrito li {
+/* =========================================
+   4. SECCIÓN DE PAGO (NUEVO)
+   ========================================= */
 
-display: flex;
-
-align-items: center;
-
-gap: 15px;
-
-background: #fff;
-
-padding: 10px;
-
-margin-bottom: 10px;
-
-border-radius: 8px;
-
-box-shadow: 0 0 5px rgba(0,0,0,0.1);
-
+/* Contenedor de Tarjeta */
+#contenedor-tarjeta {
+    display: none; /* Se activa por JS */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-#lista-carrito img {
-
-border-radius: 5px;
-
+.input-tarjeta {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
 }
 
-/* CONTENEDOR GENERAL CONTACTO */
-
-.contacto-contenedor {
-
-max-width: 900px;
-
-margin: 50px auto;
-
-padding: 40px;
-
-background:#ffffff;
-
-border-radius: 25px;
-
-border: 2px solid #f1e3c2;
-
-box-shadow: 0 0 30px rgba(255, 243, 215, 0.4); /*30px de desenfoque*/
-
-color: #000000;
-
-text-align: center;
-
+.fila-tarjeta {
+    display: flex;
+    gap: 10px;
 }
 
-/* TITULOS */
-
-.titulo-contacto {
-
-color: #d4aa46;
-
-font-size: 42px;
-
-margin-bottom: 10px; /*espacio debajo del titulo*/
-
+/* Contenedor de Yape */
+#contenedor-yape {
+    display: none; /* Se activa por JS */
+    background-color: #ffffff;
+    border: 3px solid #742384; /* Morado Yape */
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.subtitulo-contacto {
-
-margin-bottom: 30px;
-
-font-size: 18px;
-
+#contenedor-yape p {
+    color: #742384;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
-/* INFO CONTACTO */
-
-.info-contacto {
-
-margin-bottom: 25px;
-
-font-size: 18px;
-
+#contenedor-yape img {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
-/* boton de whatsapp en contactos */
-
-.btn-whatsapp {
-
-background: #25D366;
-
-color: white;
-
-padding: 14px 20px;
-
-border-radius: 10px;
-
-text-decoration: none; /*quita subrrayado por defecto */
-
-font-weight: bold; /*negrita*/
-
+.numero-yape {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #333;
+    display: block;
 }
 
-/* FORMULARIO */
-
-.contacto {
-
-max-width: 600px;
-
-margin: 40px auto;
-
-background: white;
-
-padding: 30px;
-
-border-radius: 15px;
-
-box-shadow: 0 0 15px rgba(0,0,0,0.08);
-
-}
-
-.contacto input,
-
-.contacto textarea {
-
-width: 100%;
-
-padding: 12px;
-
-margin-bottom: 15px;
-
-border-radius: 8px;
-
-border: 1px solid #f5f4ef;
-
-}
-
-/* UBICACIÓN */
-
-.ubicacion {
-
-margin-top: 50px;
-
-}
-
-.ubicacion iframe {
-
-border-radius: 15px;
-
-box-shadow: 0 0 20px rgba(255, 243, 215, 0.4);
-
-}
-
-/* MENSAJE FINAL */
-
-.mensaje-final {
-
-margin-top: 40px;
-
-font-weight: 500;
-
-color: #d4aa46;
-
-}
-/*DINAMICAS JS EN CONTACTOS*/
-.error{
-color:red;
-}
-
-.correcto{
-color:green;
-}
-
-input, textarea{
-transition:0.3s;
-}
-
-#mensaje-envio{
-color:green;
-font-weight:bold;
-margin-top:10px;
-}
-#whatsapp-float{
-position:fixed;/*el boton se pega a la pantalla no al documento */
-bottom:25px; /*posiciona al botn */
-right:25px; /*posiciona al botn */
-background:#25D366; /*color */
-color:white;/*color de letra */
-font-size:28px; /*tamaño de letra*/
-padding:15px; /*distancia interna*/
-border-radius:50%; /*forma de circulo*/
-display:none; /*no muestra la pagina*/
-cursor:pointer; /*tamaño de letra*/
-text-decoration: none;  /*quita el subrrayado*/
-}
-/* ===== CARRUSEL PRINCIPAL ===== */
-
-.hero-carousel {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;   /* No ocupa toda la pantalla */
-  height: 320px;       /* Más pequeño y elegante */
-  margin: 30px auto;   /* Centrado */
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.hero-carousel .slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.hero-carousel .slide.active {
-  opacity: 1;
-}
-
-.hero-carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.texto-slide {
-  position: absolute;
-  bottom: 25px;
-  left: 30px;
-  color: white;
-  font-size: 28px;   /* Más proporcionado */
-  font-weight: bold;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-}
-/* Estilos específicos para el carrito */
+/* =========================================
+   5. CARRITO DE COMPRAS
+   ========================================= */
 #lista-carrito {
     list-style: none;
     padding: 0;
@@ -626,121 +190,69 @@ text-decoration: none;  /*quita el subrrayado*/
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-.btn-quitar {
-    color: white;
-    background-color: #ff4d4d !important;
-}
-
-.btn-pagar-verde {
-    background-color: green !important;
-    color: white !important;
-}
-
 .carrito-acciones {
     margin-top: 20px;
     text-align: right;
 }
 
-
-#auth-container {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-}
-
-#auth-container button {
-    margin-left: 10px;
-}
-.user-menu {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown {
-    position: absolute;
-    top: 10;
-    right: 0;
-    background: white;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 100;
-}
-
-.dropdown button {
-    background: none;
-    border: none;
-    cursor: pointer;
+#total {
+    font-size: 24px;
     font-weight: bold;
-    color: #333;
+    color: #b30000;
 }
 
-.hidden {
-    display: none;
+/* =========================================
+   6. HISTORIA Y CONTACTO
+   ========================================= */
+.historia {
+    background: #ffffff;
+    padding: 60px;
+    border-radius: 20px;
+    border: 2px solid #d4aa46;
+    margin-bottom: 50px;
+    line-height: 1.9;
+    font-family: 'Georgia', serif;
 }
 
-#contenedor-yape {
-    display: none;
-    background-color: #ffffff;
-    border: 3px solid #742384;
-    padding: 20px;
-    margin: 20px 0;
+.historia h1 { color: #d4aa46; text-align: center; font-size: 44px; }
+.historia h3 { font-style: italic; text-align: justify; }
+
+.contacto-contenedor {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    background:#ffffff;
+    border-radius: 25px;
+    border: 2px solid #f1e3c2;
     text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-#contenedor-yape p {
-    color: #742384;
-    font-weight: bold;
-    margin-bottom: 10px;
+/* =========================================
+   7. ELEMENTOS FLOTANTES Y OTROS
+   ========================================= */
+#whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    font-size: 28px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration: none;
+    z-index: 999;
 }
 
-#contenedor-yape img {
-    width: 200px;
-    height: auto;
-    border-radius: 5px;
-}
-
-.numero-yape {
-    font-size: 1.2em;
-    display: block;
-    margin-top: 10px;
-    color: #333;
-}
-
-#contenedor-tarjeta {
-    display: block;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
+footer {
+    background-color: #1f1f1f;
+    color: white;
+    text-align: center;
     padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
+    margin-top: 40px;
 }
 
-.input-tarjeta {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-.fila-tarjeta {
-    display: flex;
-    gap: 10px;
-}
-
-.fila-tarjeta input {
-    flex: 1;
-}
-
-#contenedor-tarjeta h4 {
-    margin-top: 0;
-    color: #333;
-}
-
+.hidden { display: none; }
 
 
 
