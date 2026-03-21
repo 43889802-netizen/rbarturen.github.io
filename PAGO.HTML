@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Azkabar - Finalizar Compra</title>
+    <title>Azkabar - Finalizar Pedido</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,28 +27,30 @@
                 <option value="efectivo">Pago contra entrega</option>
             </select>
 
-            <div id="contenedor-tarjeta" style="display: none;">
+            <div id="contenedor-tarjeta">
                 <h4>Datos de la Tarjeta</h4>
                 <input type="text" class="input-tarjeta" placeholder="Número de Tarjeta (16 dígitos)" maxlength="16">
                 <input type="text" class="input-tarjeta" placeholder="Nombre del Titular">
-                <div class="fila-tarjeta">
-                    <input type="text" class="input-tarjeta" placeholder="MM/AA" maxlength="5">
-                    <input type="password" class="input-tarjeta" placeholder="CVV" maxlength="3">
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" placeholder="MM/AA" maxlength="5">
+                    <input type="password" placeholder="CVV" maxlength="3">
                 </div>
             </div>
 
-            <div id="contenedor-yape" style="display: none;">
+            <div id="contenedor-yape">
                 <p>Escanea el código para yapear:</p>
                 <img src="imagenes/qr-yape.png" alt="QR Yape Azkabar">
-                <span class="numero-yape">O yapea al: <strong>944 870 211</strong></span>
+                <span class="numero-yape">O yapea al: 944 870 211</span>
+                <p><small>Titular: Azkabar Licores</small></p>
             </div>
             
-            <h4 id="monto-total">Total a pagar: S/ 0.00</h4>
+            <h4 id="monto-total" style="font-size: 20px; color: #b30000; margin-top: 20px;">Total a pagar: S/ 0.00</h4>
             <button type="submit" class="btn-pagar">Confirmar y Pagar</button>
         </form>
     </div>
 
     <script>
+        // Función para mostrar/ocultar secciones
         function verificarMetodo() {
             const metodo = document.getElementById("metodo").value;
             const cajaYape = document.getElementById("contenedor-yape");
@@ -57,12 +59,33 @@
             cajaYape.style.display = (metodo === "yape") ? "block" : "none";
             cajaTarjeta.style.display = (metodo === "tarjeta") ? "block" : "none";
             
+            // Configurar campos requeridos para la tarjeta
             const inputs = cajaTarjeta.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
                 inputs[i].required = (metodo === "tarjeta");
             }
         }
 
+        // Lógica al enviar el formulario
+        document.getElementById("form-pago").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const metodo = document.getElementById("metodo").value;
+            const nombre = document.getElementById("nombre").value;
+
+            if (metodo === "yape") {
+                alert("¡Perfecto " + nombre + "! Realizó su pago. Envíe una captura al número 944 870 211 que se muestra debajo del QR.");
+            } else if (metodo === "tarjeta") {
+                alert("¡Pago con tarjeta procesado con éxito!");
+            } else {
+                alert("Pedido registrado. Pago contra entrega solicitado.");
+            }
+
+            // Vaciar carrito y volver al inicio
+            localStorage.removeItem("carrito");
+            window.location.href = "index.html";
+        });
+
+        // Mostrar total al cargar
         window.onload = function() {
             const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
