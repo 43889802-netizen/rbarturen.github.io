@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>💳 Finalizar Pedido</h1></header>
+    <header>
+        <h1>💳 Finalizar Pedido</h1>
+    </header>
+
     <div class="container">
         <form id="form-pago">
             <h3>Datos de Envío</h3>
@@ -49,8 +52,9 @@
         </form>
     </div>
 
+    <script src="js/carrito.js"></script>
     <script>
-        // 1. Mostrar/Ocultar métodos de pago dinámicamente
+        // Lógica específica de la página de pago
         function verificarMetodo() {
             const metodo = document.getElementById("metodo").value;
             const cajaYape = document.getElementById("contenedor-yape");
@@ -71,7 +75,6 @@
             }
         }
 
-        // 2. Configurar campos obligatorios según el método seleccionado
         function configurarRequeridos(contenedor, estado) {
             const inputs = contenedor.getElementsByTagName('input');
             for (let i = 0; i < inputs.length; i++) {
@@ -79,26 +82,12 @@
             }
         }
 
-        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-        const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
-        document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total.toFixed(2);
-
-        // 3. Manejar el envío del formulario
-        document.getElementById("form-pago").addEventListener("submit", function(e) {
-            e.preventDefault();
-            const metodoSeleccionado = document.getElementById("metodo").value;
-            
-            if (metodoSeleccionado === "yape") {
-                alert("✅ ¡Pedido registrado! Envía la captura de tu Yape al WhatsApp de AZKABAR.");
-            } else if (metodoSeleccionado === "tarjeta") {
-                alert("✅ Pago con tarjeta procesado con éxito.");
-            } else {
-                alert("✅ ¡Pedido confirmado! Pagas al recibir el producto.");
-            }
-            
-            localStorage.removeItem("carrito");
-            window.location.href = "index.html";
-        });
+        // Cargar total al iniciar
+        window.onload = function() {
+            const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            const total = carrito.reduce((acc, p) => acc + (parseFloat(p.precio) || 0), 0);
+            document.getElementById("monto-total").textContent = "Total a pagar: S/ " + total.toFixed(2);
+        };
     </script>
 </body>
 </html>
